@@ -1,0 +1,137 @@
+body {
+    background-color: #121212;
+    color: white;
+    background: url('/images/Police.png') no-repeat center center fixed;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    text-align: center;
+}
+
+h2 {
+    color: white;
+}
+
+p {
+    color: white;
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    color: white;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+input[type="password"],
+input[type="text"] {
+    padding: 10px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    border: none;
+    width: 80%;
+    max-width: 300px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.message {
+    display: none;
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: green;
+    animation: fadeInOut 3s forwards;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/* Section des boutons latéraux */
+.sidebar {
+    position: fixed;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 150px; /* Ajuste la largeur de la sidebar */
+}
+
+/* Style des boutons */
+.sidebar button {
+    background-color: transparent;
+    color: #ffffff;
+    padding: 12px 25px;
+    border: 3px solid #1b00b3;
+    border-radius: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.sidebar button:hover {
+    color: #1b00b3;
+    border-color: #0089b3;
+    transform: translateY(-5px);
+}
+
+.sidebar button:active {
+    transform: translateY(2px);
+}
+
+/* Pour les téléphones : mettre les boutons en haut */
+@media (max-width: 768px) {
+    .sidebar {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .sidebar button {
+        margin-bottom: 0;
+        margin-right: 10px;
+        flex: 1;
+    }
+
+    .container {
+        margin-left: 0; /* Supprimer la marge à gauche sur mobile */
+        width: 100%; /* Utilise tout l'espace sur mobile */
+    }
+}

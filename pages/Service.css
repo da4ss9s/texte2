@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background: url('/images/AutoEcolefond.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    background-color: #333;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.container {
+    background-color: rgba(0, 0, 0, 0.8); /* Opacité pour rendre le texte lisible sur l'image de fond */
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 900px;
+    text-align: left;
+}
+
+
+
+.overlay {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+.text1 {
+    font-size: 24px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.text1::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: red;
+    bottom: -10px;
+    left: 0;
+}
+
+.text2 {
+    font-size: 36px;
+    color: red;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.text2::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: red;
+    bottom: -10px;
+    left: 0;
+}
+
+.text3 {
+    font-size: 48px;
+    color: red;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.text3::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: red;
+    bottom: -10px;
+    left: 0;
+}
+
+
+/* Section des boutons latéraux */
+.sidebar {
+    position: fixed;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 150px;
+}
+
+/* Style des boutons */
+.sidebar button {
+    background-color: transparent;
+    color: #ffffff;
+    padding: 12px 25px;
+    border: 3px solid #1b00b3;
+    border-radius: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: all
+
+}

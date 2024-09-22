@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('/images/AutoEcolefond.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: space-between;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+/* Container avec fond et opacité */
+.container {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    width: 70%; /* Réduit à 70% pour laisser plus d'espace à gauche pour la sidebar */
+    max-width: 900px;
+    margin: 20px auto;
+    text-align: left;
+    margin-left: 200px; /* Espace pour ne pas toucher la sidebar */
+}
+
+/* Section de contenu principal */
+.ensemble {
+    padding: 20px;
+    color: #fff;
+}
+
+h1 {
+    text-align: center;
+    color: #fff;
+}
+
+p {
+    color: #ddd;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.note {
+    font-style: italic;
+    color: #ff4444;
+}
+
+h2 {
+    color: #fff;
+}
+
+.tarifs {
+    list-style-type: none;
+    padding: 0;
+}
+
+.tarifs li {
+    background-color: #333;
+    border: 1px solid #555;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.prix {
+    font-weight: bold;
+    color: #28a745;
+}
+
+/* Section des boutons latéraux */
+.sidebar {
+    position: fixed;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 150px;
+}
+
+/* Style des boutons */
+.sidebar button {
+    background-color: transparent;
+    color: #ffffff;
+    padding: 12px 25px;
+    border: 3px solid #1b00b3;
+    border-radius: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: all
+
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protection par code</title>
+    <link rel="stylesheet" href="Police.css"> 
+    <link rel="icon" href="/images/AutoEcoleLogo.png" type="image/png">
+    <script>
+        // Fonction pour envoyer des logs à Discord avec le matricule de l'agent et la couleur de l'embed
+        function envoyerLogDiscord(message, matricule, couleur) {
+            const webhookUrl = "https://discord.com/api/webhooks/1278002394902433834/ETxTsqZQHJ8aHl8BOjl1c_x7C5dB1b0_1HzHCmKXrhUkaGfe6Ve8TZ27sUiwf4VNsXgh";
+
+            const logData = {
+                content: "<@951868810992967691>",  // Ping ton ID Discord
+                username: "Accès Police Logs",
+                avatar_url: "https://cdn.discordapp.com/attachments/1055933296426631268/1220832024365895770/Auto_Ecole.png",  // Ajout du logo
+                embeds: [
+                    {
+                        title: "Tentative d'accès à la page protégée",
+                        description: message,
+                        color: couleur,  // La couleur est passée en paramètre
+                        fields: [
+                            { name: "Matricule de l'agent", value: matricule }
+                        ],
+                        footer: {
+                            text: "Tentative faite le " + new Date().toLocaleString()
+                        }
+                    }
+                ]
+            };
+
+            fetch(webhookUrl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(logData)
+            }).then(response => {
+                if (response.ok) {
+                    console.log("Log envoyé avec succès !");
+                } else {
+                    console.error("Erreur lors de l'envoi du log.");
+                }
+            }).catch(error => {
+                console.error("Erreur:", error);
+            });
+        }
+
+        // Fonction pour vérifier le code
+        function verifierCode() {
+            const codeEntree = document.getElementById("code").value;
+            const matricule = document.getElementById("matricule").value;
+            const codeCorrect = "485424";  // Remplace par le code correct
+
+            if (codeEntree === codeCorrect) {
+                envoyerLogDiscord("Code correct. Accès accordé.", matricule, 3447003);  // Couleur bleu pour correct (hexadecimal : 3447003 en base 10)
+                afficherMessageEtRediriger("Code correct. Vous allez être redirigé vers la page demandée.", "/pages/Police/Liste des permis/Lpermis.html");
+            } else {
+                envoyerLogDiscord("Tentative d'accès avec un code incorrect.", matricule, 16711680);  // Couleur rouge pour incorrect (16711680 en base 10)
+                afficherMessageEtRediriger("Code incorrect. Vous serez redirigé vers la page d'accueil.", "/index.html");
+            }
+        }
+
+        // Fonction pour afficher un message d'animation et rediriger après un délai
+        function afficherMessageEtRediriger(message, url) {
+            const messageDiv = document.getElementById("message");
+            messageDiv.textContent = message;
+            messageDiv.style.display = "block";
+
+            setTimeout(() => {
+                window.open(url, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=0,left=0,width=" + screen.width + ",height=" + screen.height);
+            }, 3000);  // Attend 3 secondes pour afficher l'animation avant de rediriger
+        }
+    </script>
+</head>
+
+<body>
+
+    <h2>Page protégée par un code</h2>
+    <p>Veuillez entrer le code et votre matricule pour accéder à cette page :</p>
+
+    <form onsubmit="event.preventDefault(); verifierCode();">
+        <label for="code">Code à 6 chiffres :</label>
+        <input type="password" id="code" name="code" maxlength="6" required>
+
+        <label for="matricule">Votre Matricule :</label>
+        <input type="text" id="matricule" name="matricule" maxlength="4" required>
+
+        <input type="submit" value="Valider">
+    </form>
+
+    <div id="message" class="message"></div>
+
+
+    <!-- Section des boutons -->
+    <div class="sidebar">
+        <a href="/pages/Recuperer.html"><button class="btn-recupererpoint">Récupérer Mes point de permis</button></a>
+        <a href="/pages/Service Client.html"><button class="btn-service">Service Client</button></a>
+        <a href="/pages/Avantage.html"><button class="btn-avantagevip">Apercu des Avantage VIP</button></a>
+        <a href="https://discord.gg/dcHxsHzXM4"><button class="btn-discord">REJOIGNEZ-NOUS</button></a>
+        <a href="/pages/Tarif.html"><button class="btn-nostarif">Nos Tarif Session de permis de conduire</button></a>
+    </div>
+
+
+</body>
+
+</html>
